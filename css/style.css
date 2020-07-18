@@ -1,0 +1,307 @@
+:root {
+    --text-primary: #fff;
+    --text-secondary: rgba(255, 255, 255, .7);
+    --text-hover: rgba(255, 255, 255, .75);
+    --text-disabled: rgba(255, 255, 255, .25);
+    --text-link: #ff3248;
+
+    --bg-primary: #1b0f23;
+    --bg-secondary: #22152c;
+    --bg-light: #7228e2;
+    --bg-floating: #100b13;
+    --border-color: #ff3248;
+    --shadow-color: rgba(255, 0, 0, .25);
+}
+
+body {
+    background-color: var(--bg-floating);
+    color: var(--text-secondary);
+    font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: var(--text-primary);
+}
+
+a {
+    color: var(--text-link);
+    font-weight: normal;
+}
+
+a:hover {
+    color: var(--text-link);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+p {
+    color: var(--text-secondary);
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid var(--bg-light);
+}
+
+hr.full {
+    border: 0;
+    height: 2px;
+    background-image: -webkit-linear-gradient(left, var(--bg-primary), var(--bg-light), var(--bg-primary));
+}
+
+.bg-dark {
+    background: var(--bg-primary) !important;
+}
+
+.btn-themed {
+    color: var(--text-primary);
+    background-color: var(--bg-light);
+    border-color: var(--bg-light);
+}
+
+.btn-themed:hover {
+    color: var(--text-primary);
+    background-color: var(--text-link);
+    border-color: var(--text-link);
+}
+
+.btn.focus, .btn:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 41, 0.3);
+}
+
+/* Couleur boutons social */
+.btn-twitter {
+    color: #1da1f2;
+    background-color: var(--bg-floating);
+    border-color: var(--bg-floating);
+}
+
+.btn-twitter:hover {
+    color: var(--text-primary);
+    background-color: #1da1f2;
+    border-color: #1da1f2;
+}
+
+.btn-twitch {
+    color: #6441a5;
+    background-color: var(--bg-floating);
+    border-color: var(--bg-floating);
+}
+
+.btn-twitch:hover {
+    color: var(--text-primary);
+    background-color: #6441a5;
+    border-color: #6441a5;
+}
+
+.btn-instagram {
+    color: #e1306c;
+    background-color: var(--bg-floating);
+    border-color: var(--bg-floating);
+}
+
+.btn-instagram:hover {
+    color: var(--text-primary);
+    background-color: #e1306c;
+    border-color: #e1306c;
+}
+
+.btn-discord {
+    color: #7289da;
+    background-color: var(--bg-floating);
+    border-color: var(--bg-floating);
+}
+
+.btn-discord:hover {
+    color: var(--text-primary);
+    background-color: #7289da;
+    border-color: #7289da;
+}
+
+.btn-merch {
+    color: #34da9a;
+    background-color: var(--bg-floating);
+    border-color: var(--bg-floating);
+}
+
+.btn-merch:hover {
+    color: var(--text-primary);
+    background-color: #34da9a;
+    border-color: #34da9a;
+}
+
+.btn-donation {
+    color: #f3e51d;
+    background-color: var(--bg-floating);
+    border-color: var(--bg-floating);
+}
+
+.btn-donation:hover {
+    color: var(--text-primary);
+    background-color: #f3e51d;
+    border-color: #f3e51d;
+}
+
+.btn-wishlist {
+    color: #973bec;
+    background-color: var(--bg-floating);
+    border-color: var(--bg-floating);
+}
+
+.btn-wishlist:hover {
+    color: var(--text-primary);
+    background-color: #973bec;
+    border-color: #973bec;
+}
+
+/* Couleur de la navbar */
+.navbar {
+	background: var(--bg-primary)!important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--text-hover)!important;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--text-primary)!important;
+}
+
+.navbar-dark .navbar-nav .nav-link.disabled {
+    color: var(--text-disabled)!important;
+}
+
+/* Couleurs des dropdown menus */
+.dropdown-menu {
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    border: 1px solid var(--bg-primary);
+}
+
+.dropdown-item {
+    color: var(--text-secondary);
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+}
+
+/* Couleurs des menus */
+.form-control {
+    color: #c3bace;
+    background-color: var(--bg-secondary);
+    border: none;
+    border-radius: 0;
+    outline: 0;
+    border-radius: 0;
+    filter: drop-shadow(0 3px 7px rgba(14, 8, 18, .44));
+}
+
+.form-control:focus {
+    color: #c3bace;
+    background-color: var(--bg-secondary);
+    box-shadow: none;
+}
+
+label {
+    color: var(--text-primary);
+}
+
+.form-control::placeholder {
+    color: #c3bace;
+    opacity: 1;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: var(--bg-secondary);
+    background-image: none;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    background: red;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+select {
+    flex: 1;
+    padding: 0 .5em;
+    color: #c3bace;
+    cursor: pointer;
+}
+
+
+hr.hr-4 {
+    padding: 0;
+    font-family: Font Awesome\ 5 Pro;
+    font-weight: 300;
+    border: none;
+    border-top: medium double var(--bg-light);
+    color: var(--text-link);
+    text-align: center;
+}
+
+hr.hr-4:after {
+    content: "\f51e";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 1em;
+    background: #100B13;
+}
+
+.modal-content {
+    background-color: var(--bg-secondary);
+}
+
+.close {
+    color: var(--bg-light);
+    text-shadow: 0 1px 0 var(--bg-floating);
+}
+
+.close:hover {
+    color: var(--border-color);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--bg-light);
+}
+
+.modal-footer {
+    border-top: 1px solid var(--bg-light);
+}
+
+/* Steam Importer CSS */
+
+div.imagetiles div.col-lg-3.col-md-3.col-sm-3.col-xs-6{
+    padding: 0px;
+}
+
+.border {
+    border: 1px solid var(--bg-light) !important;
+}
+
+#short_desc, #long_desc, #supported_languages, #categories, #genres, #legal_notice, #pc_requirements_min, #pc_requirements_rec, #mac_requirements_min, #mac_requirements_rec, #linux_requirements_min, #linux_requirements_rec {
+	color: var(--text-secondary);
+}

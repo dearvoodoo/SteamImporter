@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+    <head>
+        <title>SGI - Steam Game Importer</title>
+        <meta property="og:image" content="">
+        <meta property="og:image:width" content="1920" />
+        <meta property="og:image:height" content="1080" />
+        <meta property="og:title" content="SGI - Steam Game Importer">
+        <meta property="og:site_name" content="SGI - Steam Game Importer" />
+        <meta property="og:url" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" href="imgs/logo.png"/>
+
+        <!-- CSS -->
+        <link rel='stylesheet' href='https://pro.fontawesome.com/releases/v5.13.1/css/all.css'>
+        <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css'>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand">
+                <img src="imgs/logo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                Steam Game Importer
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <!-- NO MENU
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><i class="fal fa-home"></i> Home</a>
+                    </li>
+                    -->
+                </ul>
+            </div>
+
+            <!-- Button Social -->
+            <div class="btn-group mr-2" role="group" aria-label="Social">
+                <a type="button" class="btn btn-twitter" href="https://twitter.com/DearVooDoo" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a type="button" class="btn btn-twitch" href="https://twitch.tv/dear_voodoo" target="_blank"><i class="fab fa-twitch"></i></a>
+                <a type="button" class="btn btn-instagram" href="https://instagram.com/dearvoodoo" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a type="button" class="btn btn-discord" href="https://discord.gg/XeeXPA7" target="_blank"><i class="fab fa-discord"></i></a>
+            </div>
+        </nav>
+
+        <div class="container h-75 d-flex justify-content-center main-content mt-5">
+            <div class="mt-auto mb-6">
+                <div class="input-group mb-3">
+                    <input type="text" id="GameName" class="form-control" placeholder="Game Name" aria-label="Game Name" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-themed" type="button" id="button-addon2" onclick="getID($('#GameName').val());$('#button-addon2').html('<i class=\'fal fa-spinner fa-spin\'></i>')">Get Game</button>
+                    </div>
+                </div>
+
+                <div class="overflow-auto text-center" style="max-height: 150px; width: 100%">
+                    <div class="btn-group-vertical" role="group" id="matchesList">
+                    </div>
+                </div>
+                <h6><span class="badge badge-info" id="searching"></span></h6>
+                <div class="row text-center">
+                    <div class="col">
+                        <div class="row text-center">
+                            <div class="col">
+                                <h4 class="text-right">Name: </h4>
+                                <h4 class="text-right">ID: </h4>
+                                <h4 class="text-right">Developer: </h4>
+                                <h4 class="text-right">Publisher: </h4>
+                                <h4 class="text-right">Price: </h4>
+                                <h4 class="text-right">Platforms: </h4>
+                                <h4 class="text-right">Release date: </h4>
+                                <h4 class="text-right">Age: </h4>
+                            </div>
+                            <div class="col">
+                                <h4 class="text-left" id="name">______</h4>
+                                <h4 class="text-left" id="appID">______</h4>
+                                <h4 class="text-left" id="developers">______</h4>
+                                <h4 class="text-left" id="publishers">______</h4>
+                                <h4 class="text-left" id="price">______</h4>
+                                <h4 class="text-left" id="platforms">______</h4>
+                                <h4 class="text-left" id="release_date">______</h4>
+                                <h4 class="text-left" id="pegi">______</h4>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row text-center">
+                            <div class="col">
+                                <h3>Short desc</h3>
+                                <div id="short_desc" class="border rounded overflow-auto" style="padding: 5px; min-height: 150px; max-height: 150px; width: 100%">
+                                    ______
+                                </div>
+                                <div class="mt-3">
+                                    <button type="button" class="btn btn-block btn-themed btn-clipboard" onclick="copyToClipboard(short_desc)">Copy</button> 
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h3>Long desc</h3>
+                                <div id="long_desc" class="border rounded overflow-auto" style="padding: 5px; min-height: 150px; max-height: 150px; width: 100%">
+                                    ______
+                                </div>
+                                <div class="mt-3">
+                                    <button type="button" class="btn btn-block btn-themed btn-clipboard" onclick="copyToClipboard(long_desc)">Copy</button> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col">
+                                <h3>Languages</h3>
+                                <div id="supported_languages" class="border rounded overflow-auto" style="padding: 5px; min-height: 150px; max-height: 150px; width: 100%">
+                                    ______
+                                </div>
+                                <div class="mt-3">
+                                    <button type="button" class="btn btn-block btn-themed btn-clipboard" onclick="copyToClipboard(supported_languages)">Copy</button> 
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h3>Categories</h3>
+                                <div id="categories" class="border rounded overflow-auto" style="padding: 5px; min-height: 150px; max-height: 150px; width: 100%">
+                                    ______
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h3>Genres</h3>
+                                <div id="genres" class="border rounded overflow-auto" style="padding: 5px; min-height: 150px; max-height: 150px; width: 100%">
+                                    ______
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h3>Legal</h3>
+                                <div id="legal_notice" class="border rounded overflow-auto" style="padding: 5px; min-height: 150px; max-height: 150px; width: 100%">
+                                    ______
+                                </div>
+                                <div class="mt-3">
+                                    <button type="button" class="btn btn-block btn-themed btn-clipboard" onclick="copyToClipboard(legal_notice)">Copy</button> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row text-center">
+                            <div class="col">
+                                <h3>PC Minimum Requirements</h3>
+                                <div id="pc_requirements_min" class="border rounded overflow-auto" style="padding: 5px; min-height: 150px; max-height: 150px; width: 100%">
+                                    ______
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h3>PC Recommanded Requirements</h3>
+                                <div id="pc_requirements_rec" class="border rounded overflow-auto" style="padding: 5px; min-height: 150px; max-height: 150px; width: 100%">
+                                    ______
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col">
+                                <h3>Mac Minimum Requirements</h3>
+                                <div id="mac_requirements_min" class="border rounded overflow-auto" style="padding: 5px; min-height: 150px; max-height: 150px; width: 100%">
+                                    ______
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h3>Mac Recommanded Requirements</h3>
+                                <div id="mac_requirements_rec" class="border rounded overflow-auto" style="padding: 5px; min-height: 150px; max-height: 150px; width: 100%">
+                                    ______
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col">
+                                <h3>Linux Minimum Requirements</h3>
+                                <div id="linux_requirements_min" class="border rounded overflow-auto" style="padding: 5px; min-height: 150px; max-height: 150px; width: 100%">
+                                    ______
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h3>Linux Recommanded Requirements</h3>
+                                <div id="linux_requirements_rec" class="border rounded overflow-auto" style="padding: 5px; min-height: 150px; max-height: 150px; width: 100%">
+                                    ______
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row text-center text-lg-left pt-3" id="images_list">
+                    <!-- IMG HERE -->
+                </div>
+                <div class="input-group mt-3">
+                    <input type="text" id="YTThumb" class="form-control" placeholder="YouTube URL" aria-label="YouTube URL" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-themed" type="button" id="button-addon3" onclick="getThumb($('#YTThumb').val());$('#button-addon2').html('<i class=\'fal fa-spinner fa-spin\'></i>')">Get Thumbnail</button>
+                    </div>
+                </div>
+                <div class="row text-center text-lg-left pt-3" id="YT_THUMB_HERE">
+                    <!-- IMG YT HERE -->
+                </div>
+            </div>
+        </div>
+
+    <div class="pt-5 text-center">
+        <h6 style="color: #3c3556;">
+            &copy; VooDoo 2019-2020 All Rights Reserved
+        </h6>
+        <a href="https://twitter.com/DearVooDoo?ref_src=twsrc%5Etfw" target="_blank" class="twitter-follow-button" data-show-count="false">Follow @DearVooDoo</a>
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+    <!-- JS -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js'></script>
+
+    <script src='js/survivor.js'></script>
+</body>
+
+</html>
+
+        <!-- JS -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+        <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+        <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js'></script>
+        <script src='js/main.js'></script>
+    </body>
+</html>
